@@ -47,7 +47,7 @@ class tcpwrappers (
     'Ubuntu': {
       contain tcpwrappers::install
       contain tcpwrappers::config
-      $package_name = 'tcpd'
+
       Class['tcpwrappers::install']
       -> Class['tcpwrappers::config']
     }

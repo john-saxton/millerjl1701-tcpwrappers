@@ -45,7 +45,11 @@ class tcpwrappers (
       -> Class['tcpwrappers::config']
     }
     'Ubuntu': {
-      Class['tcpwrappers::config']
+      contain tcpwrappers::install
+      contain tcpwrappers::config
+
+      Class['tcpwrappers::install']
+      -> Class['tcpwrappers::config']
     }
     default: {
       fail("${::operatingsystem} not supported")
